@@ -130,4 +130,9 @@ function setupAudioContext() {
         // Connect the nodes in the audio graph
         source.connect(analyser);
         analyser.connect(audioCtx.destination);
+        
+        // Set up the analyser for frequency data
+        analyser.fftSize = 256;
+        const bufferLength = analyser.frequencyBinCount;
+        const dataArray = new Uint8Array(bufferLength);
         
