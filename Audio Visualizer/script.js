@@ -145,4 +145,9 @@ function setupAudioContext() {
 audioUpload.addEventListener('change', (e) => {
     const file = e.target.files[0];
     if (file) {
-        const fileURL = URL.createObjectURL(file);
+        const fileURL = URL.createObjectURL(file);
+        audioSource.src = fileURL;
+        playPauseBtn.disabled = false;
+        playPauseBtn.textContent = "Play";
+        isPlaying = false;
+        
